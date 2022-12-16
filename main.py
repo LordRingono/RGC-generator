@@ -35,11 +35,13 @@ async def generate(ctx):
   elf = Button(label="Elfe", style=discord.ButtonStyle.primary)
   nain = Button(label="Nain", style=discord.ButtonStyle.primary)
   gnome = Button(label="Gnome", style=discord.ButtonStyle.primary)
+  # ici, on crée les différents bouttons
   view = View()
   view.add_item(humain)
   view.add_item(elf)
   view.add_item(nain)
   view.add_item(gnome)
+  # ici, je les ajoutes a ma variable view
   await ctx.send("choisis une race", view=view)
   async def button4_callback(interaction):
     race = "Gnome(ide) "
@@ -84,8 +86,10 @@ async def generate(ctx):
     final = race + classe
     await interaction.message.edit(content=final, view=view)
     await interaction.response.send_message("")
+  # ici, nous avons les cifférents callbacks
   humain.callback = button1_callback
   elf.callback = button2_callback
   nain.callback = button3_callback
   gnome.callback = button1_callback
+  # ici, on définis quel callback vas avec quel boutton
 bot.run(token)
