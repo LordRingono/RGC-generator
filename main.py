@@ -13,20 +13,6 @@ classes = ["voleur(e)", "prêtre(esse)", "guerrier(re)", "mage", "inutile", "cle
 @bot.event
 async def on_ready():
   print("Bot connecté en tant que {0.user} !".format(bot))
-
-@bot.command()
-async def ping(ctx):
-   await ctx.respond("This is a button!")
-@bot.command()
-async def hello(ctx):
-  await ctx.send(random.choice(classes))
-  button = Button(label="clique moi", style=discord.ButtonStyle.primary)
-  view = View()
-  view.add_item(button)
-  await ctx.send("hi", view=view)
-  async def button_callback(interaction):
-    await interaction.response.send_message("Hey")
-  button.callback = button_callback
 @bot.command()
 async def generate(ctx):
   race = ""
